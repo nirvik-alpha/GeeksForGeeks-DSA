@@ -9,22 +9,25 @@ using namespace std;
 
 class Solution {
   public:
+  
+    bool bs(int arr[] , int left,int right)
+    {
+        if(left==right)
+        return true;
+        
+        int mid = left + (right-left)/2;
+        
+        bool leftsorted = bs(arr,left,mid);
+        bool rightsorted = bs(arr,mid+1,right);
+        bool check = (arr[mid]<=arr[mid+1]);
+        
+        return leftsorted && rightsorted && check ;
+        
+    }
+  
     bool arraySortedOrNot(int arr[], int n) {
        
-       int k =0;
-       for(int i=1;i<n;i++)
-       {
-           if(arr[i-1]>arr[i]){
-               k=1;
-               break;
-           }
-          
-       }
-       
-       if(k==1)
-       return 0;
-       else
-       return 1;
+     return bs(arr,0,n-1);
        
        
     }
