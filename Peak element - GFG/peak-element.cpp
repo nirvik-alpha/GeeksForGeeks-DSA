@@ -4,28 +4,26 @@ using namespace std;
 
 
 // } Driver Code Ends
-/* The function should return the index of any
-   peak element present in the array */
 
-// arr: input array
-// n: size of array
+
 class Solution
 {
     public:
     int peakElement(int arr[], int n)
     {
-        int max = 0;
-        int peak;
+      int peak_index;
+      int max =0;
+      
       for(int i=0;i<n;i++)
       {
-          if(arr[i]>max)
-            {
-                max= arr[i];
-                peak = i;
-            }
+          if(arr[i]>max){
+              max = arr[i];
+              peak_index = i;
+          }
       }
       
-      return peak;
+      return peak_index;
+      
       
     }
 };
